@@ -1,5 +1,6 @@
 
-# Check that the installation directory was created successfully
-describe file('/usr/local/BLAST') do
-  it { should be_directory }
+# Check that the installation was successfull
+describe file('/usr/bin/blastn') do
+  it { should be_file }
+  it { should be_executable }
 end

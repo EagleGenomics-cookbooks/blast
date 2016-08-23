@@ -16,7 +16,7 @@ Notes
 
 Usage
 =====
-Simply include the recipe wherever you would like it installed, such as a run list (recipe[BLAST]) or a cookbook (include_recipe 'BLAST')
+Simply include the recipe wherever you would like it installed, such as a run list (recipe[blast]) or a cookbook (include_recipe 'blast')
 
 
 ## Testing
