@@ -1,4 +1,4 @@
-name 'BLAST'
+name 'blast'
 maintainer 'Eagle Genomics Ltd'
 maintainer_email 'chef@eaglegenomics.com'
 license 'apachev2'
