@@ -17,5 +17,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[BLAST::default]
+      - recipe[blast::default]
     attributes:
