@@ -4,4 +4,8 @@ maintainer_email 'chef@eaglegenomics.com'
 license 'apachev2'
 description 'Installs/Configures BLAST'
 long_description 'Installs/Configures BLAST'
+source_url 'https://github.com/EagleGenomics-cookbooks/BLAST'
+issues_url 'https://github.com/EagleGenomics-cookbooks/BLAST/issues'
 version '0.1.0'
+
+depends 'build-essential'
