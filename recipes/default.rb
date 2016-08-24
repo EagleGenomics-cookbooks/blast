@@ -21,6 +21,7 @@ package ['tar'] do
 end
 
 include_recipe 'build-essential'
+include_recipe 'apt'
 
 # to run the fasta pipeline we need makeblastdb installed
 # ubuntu only

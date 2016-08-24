@@ -7,9 +7,10 @@ This Cookbook installs BLAST, a tool to assess genome assembly and annotation co
 Requirements
 ============
 
-## Platform:
+## Platforms:
 
 * Centos 7.2
+* Ubuntu 14.04
 
 Notes
 =====
