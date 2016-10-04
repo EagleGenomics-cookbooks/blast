@@ -6,7 +6,7 @@ description 'Installs/Configures BLAST'
 long_description 'Installs/Configures BLAST'
 source_url 'https://github.com/EagleGenomics-cookbooks/blast'
 issues_url 'https://github.com/EagleGenomics-cookbooks/blast/issues'
-version '1.0.0'
+version '1.0.1'
 
 depends 'build-essential'
 depends 'apt'
