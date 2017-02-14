@@ -7,7 +7,6 @@ addons:
     - chef-stable-trusty
     packages:
     - chefdk
-
 install: echo "skip bundle install"
 
 branches:
@@ -35,9 +34,4 @@ script:
 
 notifications:
   slack:
-    secure: GatT/vs6Rxp7pKcKHYLH957yhQxZJXGHz/bSN2GjJuVWPq2ut9JDKYLpuRxU7OSCwV7hDTe7pmw0wM/X0WkMAd7BLqQWDfLh+m75aJ4chSdb2OtQ9dsaI+rnCRiEJrJt08NTBBkdp4XEskzj6A64kGyBYy0J55Zc7EU3WfHoFQeFffLtJIB4bb0umt4N0Z60e6I7oooab0ONgpGrLK613LLsg3HSOf4UYmW+5gDGRwDSJjWAXlrAf1XSHKcAT1WFU9ZGcm1Kwe1LEEZw+X4lg4tXaHU06ccWpXDmBcfEgI+x29Ax2jjLk6uBlxYB7O/SQbaOd4qv4gNfCnJiKCBVtXVChS4hTw5j3k5XsbRupJ43w/3/eHgai2hzYyNKhr2beTV7QZ0yNnpDd/FIcznO+c4W5m7mDnUBumQe8tACAlFP4F8Fiurbz0zDmyjQ6L8hWp+PWH5RnIRK67Dp15MAj8+Fv3fC4QRQIsF3NnWFN28eJAGI8nesgu8EjNivORiyz08kWfH/z1TmCCDkzUkhFa4WlS0qJjRCiWLZuxAqYxC0MDAxpYdWzn7mfaTLPaS/1ma+rhBAvR2+12tWLRmTv3PF3m+VHB4R9wVyV6tfW/Z61+TP2oYwUhbX+M02v8z1LXdFQLvHbVfrYr2Uo4gFP3PzwKWcxiP783Z96hqpoC8=
-    on_failure: change
-    on_success: change
-  email:
-    on_success: change
-    on_failure: always
+    secure: e7B2agCVRNcrKWGdb10HYE3ocootJaqwjK2/waRPbPvccyNkf7lwLN1RHd7SW4SmPOHIgtfTkYMZRguNufsT63vdsw4pIpc0hEYnCHb7UMmz4b9bcX7k3WOwen+QD13sUM9yHKvaTw3Koa9Kpx76d1bKZcWa62zEu9aFuDNloMEudP1p+h23kSbYG3nm8AqCEdCI0VUOAua7K/Ske4jJyoJnve0zM0qNCKwG6Mq2fnGjGaiG9OGKE83LwmvytgH5e/fLj7xBMNTmxEW0/MX1OXU5ADa202xOdnqWJu0lThfwC+P8/CW3FVmWzelzLRsa7FR9/W9ps7OV5nRGc6GL55EhV90HcvMwxuzjDctrsZSUFQ2FpvKVcNy0JAOxMQGH/CcWiEuu0wbJOxk3uyic3+R4WLZYqmXMhxOsjTVqbKyFrvJVVhAEmXEgiHsAKEgpKTfAHcyOatjaQ8i2Ln0CtIPCDUztAn+kTqcZMsWlW1ZjnVsWEViNxfv2FwuJITtP/pirutJuBhtdzq9URMbjpzrbE8lCcCzRUA7iEJ7zcdSkDMGBHb3k+E8f609XwIWufptWHkSTaKc/zbklLO04KOg15gq1YBkeWfqZBMHbXYaT7EenxpAvZGBzE4cdFfEfGPg6nzQFmHl+EwjrtOy0a4DkOZb4Fc8QAkMz0zsXPrs=

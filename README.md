@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/EagleGenomics-cookbooks/blast.svg?branch=master)](https://travis-ci.org/EagleGenomics-cookbooks/blast)
 
-
 # BLAST
 
 Description
