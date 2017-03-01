@@ -23,19 +23,22 @@ end
 include_recipe 'build-essential'
 include_recipe 'apt'
 
+blast_rpm_filename = "ncbi-blast-#{node['blast']['version']}+-1.x86_64.rpm"
+blast_source = "#{node['blast']['url']}/#{node['blast']['version']}"
+
 # to run the fasta pipeline we need makeblastdb installed
 # ubuntu only
 if node['platform_family'] == 'debian'
   package 'ncbi-blast+'
 elsif node['platform_family'] == 'rhel'
-  remote_file "#{Chef::Config[:file_cache_path]}/#{node['blast']['rpm_filename']}" do
-    source "#{node['blast']['url']}#{node['blast']['rpm_filename']}"
+  remote_file "#{Chef::Config[:file_cache_path]}/#{blast_rpm_filename}" do
+    source "#{blast_source}/#{blast_rpm_filename}"
     not_if { File.exist?('/usr/bin/blastn') }
     action :create_if_missing
   end
 
   execute 'install ncbi-blast rpm' do
-    command "rpm -i --nodeps #{Chef::Config[:file_cache_path]}/#{node['blast']['rpm_filename']}"
+    command "rpm -i --nodeps #{Chef::Config[:file_cache_path]}/#{blast_rpm_filename}"
     not_if { File.exist?('/usr/bin/blastn') }
   end
 end
