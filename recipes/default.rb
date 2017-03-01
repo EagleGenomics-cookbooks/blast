@@ -29,7 +29,7 @@ if node['platform_family'] == 'debian'
   package 'ncbi-blast+'
 elsif node['platform_family'] == 'rhel'
   remote_file "#{Chef::Config[:file_cache_path]}/#{node['blast']['rpm_filename']}" do
-    source "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/#{node['blast']['rpm_filename']}"
+    source "#{node['blast']['url']}#{node['blast']['rpm_filename']}"
     not_if { File.exist?('/usr/bin/blastn') }
     action :create_if_missing
   end
