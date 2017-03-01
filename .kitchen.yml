@@ -15,7 +15,14 @@ platforms:
   - name: centos-7.2
 
 suites:
-  - name: default
+  - name: blast
     run_list:
       - recipe[blast::default]
     attributes:
+  - name: blast2
+    run_list:
+      - recipe[blast::default]
+    attributes:
+      blast:
+        version: '2.4.0'
+    excludes: centos-7.2
