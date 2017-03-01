@@ -17,6 +17,8 @@ Requirements
 Notes
 =====
 
+When specifying a version other than 2.6.0, it is necessary to change the `blast_rpm_filename` within the recipe. For version 2.6.0, this has the extension `+-1.x86_64.rpm` but for, e.g. version 2.4.0 this is `+-2.x86_64.rpm`. Wildcard characters do not seem to work when specifying `remote_file`.
+
 Usage
 =====
 Simply include the recipe wherever you would like it installed, such as a run list (recipe[blast]) or a cookbook (include_recipe 'blast')
