@@ -6,7 +6,7 @@ TOKEN=$4
 body='{
 "request": {
   "branch":"master",
-  "message": "Triggered build - blast runnable code"
+  "message": "Triggered build - blast dependency"
 }}'
 
 if [ "$ACCESS" == "private" ]
