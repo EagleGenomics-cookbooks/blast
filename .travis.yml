@@ -17,8 +17,8 @@ env:
   - secure: YLQBpGFxFQ024tgtEScontLS9sg4bpqU4E6CGFV0BHlyu0DKxNF4bvrecqRxBAVFHSVpgvvS/LlGNQ+t97RPeICAs8sTcYu0eHHZG57H1gxys9NwGpfmsg828g4KIr5pxE9sSt+fL4bddeZqYl6XFdFWXTSsLiSIX/ecvEXbycmDpqF6q8H4dMvP7vGDiOHXHr9Avj9Nxrf/gFDi8oGOCTxfD28xNncYirRGDDz2PqolyLc1zmt7c6Uu3LhgHOaFOfOVX9pdKEDww5oYFuDDaDqZKZ+yX+qLyJfQYURcN6hofAWPsTKHIRm/psn2qZYh5oM1+vOzqyrpDgNSUVZl2++XBQs/XGpX88IOeK349QTD+kguyCW0Bn5QeFZNty03PqAiIZH6xJXRdPYfrwWQizDe4NewJ+NIeS5dGzDxOM14Bnan09JWn+VkQgqjHpHCTVi5kFEYVaHHc+Kixl6OlsOyaz6NdPskmJPKgqH+rtMcHQ+baIee3CY7r1FfH28UGLgPxFqUwlY+rhvjcFoaB78K0FkCfvLVXZlygbf0SatYVpo62Bq7XRNG6tAEhfdW7VGdicNSoBz3SmJZ/Wqg4Ln/uDOma3dqInP5h7ubKt+WH0eQzXTDRcmXchb1flO7zzRC9D2UR3bM+REmeIjBNdWsODNLTGWSwmXfjkHFryY=
   matrix:
   - CHEF_VERSION=current INSTANCE=blast-ubuntu-1404
-  - CHEF_VERSION=current INSTANCE=blast-centos-72
-  - CHEF_VERSION=current INSTANCE=blast2-ubuntu-1404
+  # - CHEF_VERSION=current INSTANCE=blast-centos-72
+  # - CHEF_VERSION=current INSTANCE=blast2-ubuntu-1404
 before_script:
 - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables
   -N DOCKER )
