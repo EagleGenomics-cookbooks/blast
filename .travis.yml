@@ -1,6 +1,5 @@
 sudo: required
 dist: trusty
-
 addons:
   apt:
     sources:
@@ -8,32 +7,30 @@ addons:
     packages:
     - chefdk
 install: echo "skip bundle install"
-
 branches:
   only:
   - master
-
 services: docker
-
 env:
   global:
   - RUBYOPT="-W0"
+  - secure: YLQBpGFxFQ024tgtEScontLS9sg4bpqU4E6CGFV0BHlyu0DKxNF4bvrecqRxBAVFHSVpgvvS/LlGNQ+t97RPeICAs8sTcYu0eHHZG57H1gxys9NwGpfmsg828g4KIr5pxE9sSt+fL4bddeZqYl6XFdFWXTSsLiSIX/ecvEXbycmDpqF6q8H4dMvP7vGDiOHXHr9Avj9Nxrf/gFDi8oGOCTxfD28xNncYirRGDDz2PqolyLc1zmt7c6Uu3LhgHOaFOfOVX9pdKEDww5oYFuDDaDqZKZ+yX+qLyJfQYURcN6hofAWPsTKHIRm/psn2qZYh5oM1+vOzqyrpDgNSUVZl2++XBQs/XGpX88IOeK349QTD+kguyCW0Bn5QeFZNty03PqAiIZH6xJXRdPYfrwWQizDe4NewJ+NIeS5dGzDxOM14Bnan09JWn+VkQgqjHpHCTVi5kFEYVaHHc+Kixl6OlsOyaz6NdPskmJPKgqH+rtMcHQ+baIee3CY7r1FfH28UGLgPxFqUwlY+rhvjcFoaB78K0FkCfvLVXZlygbf0SatYVpo62Bq7XRNG6tAEhfdW7VGdicNSoBz3SmJZ/Wqg4Ln/uDOma3dqInP5h7ubKt+WH0eQzXTDRcmXchb1flO7zzRC9D2UR3bM+REmeIjBNdWsODNLTGWSwmXfjkHFryY=
   matrix:
   - CHEF_VERSION=current INSTANCE=blast-ubuntu-1404
   - CHEF_VERSION=current INSTANCE=blast-centos-72
   - CHEF_VERSION=current INSTANCE=blast2-ubuntu-1404
-
 before_script:
 - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables
   -N DOCKER )
 - eval "$(/opt/chefdk/bin/chef shell-init bash)"
 - chef gem install kitchen-docker
 - "/opt/chefdk/bin/chef exec rake tests"
-
 script:
 - KITCHEN_LOCAL_YAML=.kitchen.docker.yml
 - travis_wait 30 /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
-
 notifications:
   slack:
     secure: e7B2agCVRNcrKWGdb10HYE3ocootJaqwjK2/waRPbPvccyNkf7lwLN1RHd7SW4SmPOHIgtfTkYMZRguNufsT63vdsw4pIpc0hEYnCHb7UMmz4b9bcX7k3WOwen+QD13sUM9yHKvaTw3Koa9Kpx76d1bKZcWa62zEu9aFuDNloMEudP1p+h23kSbYG3nm8AqCEdCI0VUOAua7K/Ske4jJyoJnve0zM0qNCKwG6Mq2fnGjGaiG9OGKE83LwmvytgH5e/fLj7xBMNTmxEW0/MX1OXU5ADa202xOdnqWJu0lThfwC+P8/CW3FVmWzelzLRsa7FR9/W9ps7OV5nRGc6GL55EhV90HcvMwxuzjDctrsZSUFQ2FpvKVcNy0JAOxMQGH/CcWiEuu0wbJOxk3uyic3+R4WLZYqmXMhxOsjTVqbKyFrvJVVhAEmXEgiHsAKEgpKTfAHcyOatjaQ8i2Ln0CtIPCDUztAn+kTqcZMsWlW1ZjnVsWEViNxfv2FwuJITtP/pirutJuBhtdzq9URMbjpzrbE8lCcCzRUA7iEJ7zcdSkDMGBHb3k+E8f609XwIWufptWHkSTaKc/zbklLO04KOg15gq1YBkeWfqZBMHbXYaT7EenxpAvZGBzE4cdFfEfGPg6nzQFmHl+EwjrtOy0a4DkOZb4Fc8QAkMz0zsXPrs=
+after_success:
+- chmod +x trigger_dependent_build.sh
+- "./trigger_dependent_build.sh EagleGenomics-cookbooks blast_runnable private $TRAVIS_ACCESS_TOKEN"
